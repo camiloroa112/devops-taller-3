@@ -9,8 +9,8 @@ def index():
     return jsonify(data)
 
 @application.route("/<string:id>")
-def heroe(id):
-    return jsonify(data[id])
+def heroe(id_heroe):
+    return jsonify(data[id_heroe])
 
 if __name__ == "__main__":
     application.run(port = 5000, debug = True)
