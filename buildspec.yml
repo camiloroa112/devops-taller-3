@@ -1,31 +1,27 @@
 
 version: 0.2
 
-env:
-  variables:
-    PATH: "/root/.local/bin:/usr/local/bin:/usr/bin:/bin"
-
 phases:
   install:
     runtime-versions:
       python: 3.13
     commands:
-      - curl -LsSf https://astral.sh/uv/install.sh | env UV_UNMANAGED_INSTALL=/usr/local/bin sh
-      - uv --version
+      - 'curl -LsSf https://astral.sh/uv/install.sh | env UV_UNMANAGED_INSTALL=/usr/local/bin sh'
+      - 'uv --version'
 
   pre_build:
     commands:
-      - uv venv --python 3.13
-      - uv pip install -r requirements-dev.txt
+      - 'uv venv --python 3.13'
+      - 'uv pip install -r requirements-dev.txt'
 
   build:
     commands:
-      - uv run --no-project --no-managed-python -- pytest -v
+      - 'uv run --no-project --no-managed-python -- pytest -v'
 
 artifacts:
   files:
-    - "**/*"
+    - '**/*'
   exclude-paths:
-    - ".venv/**/*"
-    - "__pycache__/**/*"
-    - ".pytest_cache/**/*"
+    - '.venv/**/*'
+    - '__pycache__/**/*'
+    - '.pytest_cache/**/*'
