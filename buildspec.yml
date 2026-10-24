@@ -1,6 +1,4 @@
-
 version: 0.2
-
 phases:
   install:
     runtime-versions:
@@ -8,7 +6,6 @@ phases:
     commands:
       - 'curl -LsSf https://astral.sh/uv/install.sh | env UV_UNMANAGED_INSTALL=/usr/local/bin sh'
       - 'uv --version'
-
   pre_build:
     commands:
       - 'uv venv --python 3.13'
@@ -17,7 +14,6 @@ phases:
   build:
     commands:
       - 'uv run --no-project --no-managed-python -- pytest -v'
-
 artifacts:
   files:
     - '**/*'
